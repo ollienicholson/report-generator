@@ -14,15 +14,10 @@ response = requests.get(url)
 if response.status_code == 200:
     # Load the JSON data
     data = response.json()
-    # print(data) # prints all data
 
     # Extract the first player's data
     first_player = data['PlayerStats'][0]['2024'][0]['0'][0]['2024-1-Sea-Eagles-v-Rabbitohs'][0]
 
-    # Print the first player's data
-    # print(first_player)
-
-    # Print the first player
     # a. player name, number, position
     player_name = first_player['Name']
     player_number = first_player['Number']

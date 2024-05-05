@@ -52,33 +52,64 @@ def create_word_document():
 
     doc.add_paragraph('Here is some NRL data:')
 
-    # Load JSON data
-    with open('game_stats.json', 'r') as file:
-        data = json.load(file)
+    import requests
 
-    # Iterate over each item in the JSON data to create tables
-    for year_data in data['NRL']:
-        for year, matches in year_data.items():
-            doc.add_heading(f'Year: {year}', level=2)
-            for match_week, games in matches[0].items():
-                doc.add_heading(f'Week {match_week}', level=3)
-                for game in games:
-                    table = doc.add_table(rows=1, cols=6)
-                    hdr_cells = table.rows[0].cells
-                    hdr_cells[0].text = 'Match Details'
-                    hdr_cells[1].text = 'Date'
-                    hdr_cells[2].text = 'Home Team'
-                    hdr_cells[3].text = 'Home Score'
-                    hdr_cells[4].text = 'Away Team'
-                    hdr_cells[5].text = 'Away Score'
+    url = 'https://geo145327-staging.s3.ap-southeast-2.amazonaws.com/public/nrl_data.json'
 
-                    row_cells = table.add_row().cells
-                    row_cells[0].text = game['Details']
-                    row_cells[1].text = game['Date']
-                    row_cells[2].text = game['Home']
-                    row_cells[3].text = game['Home_Score']
-                    row_cells[4].text = game['Away']
-                    row_cells[5].text = game['Away_Score']
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        # Load data
+        data = response.json()
+
+        # for week_data in data['NRL']:
+        #     for week, games in week_data.items():
+        #         doc.add_heading(f"Week {week}", level=2)
+        #         table = doc.add_table(rows=1, cols=6)
+        #         hdr_cells = table.rows[0].cells
+        #         hdr_cells[0].text = 'Match Details'
+        #         hdr_cells[1].text = 'Date'
+        #         hdr_cells[2].text = 'Home Team'
+        #         hdr_cells[3].text = 'Home Score'
+        #         hdr_cells[4].text = 'Away Team'
+        #         hdr_cells[5].text = 'Away Score'
+
+        #         for game in games:
+        #             row_cells = table.add_row().cells
+        #             row_cells[0].text = game['Details']
+        #             row_cells[1].text = game['Date']
+        #             row_cells[2].text = game['Home']
+        #             row_cells[3].text = game['Home_Score']
+        #             row_cells[4].text = game['Away']
+        #             row_cells[5].text = game['Away_Score']
+
+    # # Load JSON data
+    # with open('game_stats.json', 'r') as file:
+    #     data = json.load(file)
+
+    # # Iterate over each item in the JSON data to create tables
+    # for year_data in data['NRL']:
+    #     for year, matches in year_data.items():
+    #         doc.add_heading(f'Year: 2023 {year}', level=2)
+    #         for match_week, games in matches[0].items():
+    #             doc.add_heading(f'Week {match_week}', level=3)
+    #             table = doc.add_table(rows=1, cols=6)
+    #             hdr_cells = table.rows[0].cells
+    #             hdr_cells[0].text = 'Match Details'
+    #             hdr_cells[1].text = 'Date'
+    #             hdr_cells[2].text = 'Home Team'
+    #             hdr_cells[3].text = 'Home Score'
+    #             hdr_cells[4].text = 'Away Team'
+    #             hdr_cells[5].text = 'Away Score'
+
+    #             for game in games:
+    #                 row_cells = table.add_row().cells
+    #                 row_cells[0].text = game['Details']
+    #                 row_cells[1].text = game['Date']
+    #                 row_cells[2].text = game['Home']
+    #                 row_cells[3].text = game['Home_Score']
+    #                 row_cells[4].text = game['Away']
+    #                 row_cells[5].text = game['Away_Score']
 
     filename = 'test.docx'
 
@@ -91,13 +122,3 @@ def create_word_document():
 
 # Run the function to create the document
 create_word_document()
-
-
-# Additional Features
-# python-docx offers many features to enrich your Word documents:
-
-# Adding more sections: You can add multiple paragraphs, headings, and even tables.
-# Formatting text: Apply different styles, fonts, and colors.
-# Inserting images: You can add images to the document.
-# Creating tables: Add tables with multiple rows and columns.
-# Here’s an example of adding a table:
