@@ -53,7 +53,7 @@ def create_word_document():
     doc.add_paragraph('Here is some NRL data:')
 
     # Load JSON data
-    with open('stats.json', 'r') as file:
+    with open('game_stats.json', 'r') as file:
         data = json.load(file)
 
     # Iterate over each item in the JSON data to create tables
@@ -79,12 +79,6 @@ def create_word_document():
                     row_cells[3].text = game['Home_Score']
                     row_cells[4].text = game['Away']
                     row_cells[5].text = game['Away_Score']
-
-    # # Create a table with 3 rows and 2 columns
-    # table = doc.add_table(rows=3, cols=2)
-    # for row in table.rows:
-    #     for cell in row.cells:
-    #         cell.text = 'Data'
 
     filename = 'test.docx'
 
