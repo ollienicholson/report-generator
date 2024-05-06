@@ -1,11 +1,12 @@
 PROJECT
 # in this project we want to create a tool which allows you to render a docx report
 
+
 REPORT
 # this report will have: 
 #   title page
 #   text - calulated and static
-#   graphs - bar, scatter, pie, and heat map
+#   graphs - bar, scatter, pie, (and heat map?)
 #   data will be pulled from a database
 
 
@@ -13,14 +14,10 @@ REPORT
 # user will render reports
 # user should be able to customise the templates
 # user should be able to enter specifc values required before rendering a doc
-
-the user should be able to specify the font type of the header and the body text
-
-the user should be able to specify to font size of the header and the body of the text
-
-user should be able to add hero image
-
-user should be able to select their NRL team from which team specific data will render
+# the user should be able to specify the font type of the header and the body text
+# the user should be able to specify to font size of the header and the body of the text
+# user should be able to add hero image
+# user should be able to select their NRL team from which team specific data will render
 
 
 # this tool will first be built as a gui
@@ -46,11 +43,15 @@ allow for image selection or upload
 
 allow for font size and style selection
 
-
 ** create ChatGPT integration to create specific text based on the NRL team
 
 ** add reqs.txt
 
+NEW BRANCH: DocGenGUI
 ** create WEB version in Python and in Typescript
 
+NEW BRANCH: DocGenWeb
 ** create WEB version in Typescript
+
+ADJACENT PROJECT:
+** create a web scraper that regularly scrapes NRL data, store in DB accessible via this tool

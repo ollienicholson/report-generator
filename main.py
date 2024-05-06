@@ -83,6 +83,7 @@ def create_word_document():
         #             row_cells[4].text = game['Away']
         #             row_cells[5].text = game['Away_Score']
 
+    # NOTE the below statement reads the JSON file, not the web data
     # # Load JSON data
     # with open('game_stats.json', 'r') as file:
     #     data = json.load(file)
