@@ -4,6 +4,8 @@ from docx import Document
 from docx.shared import Cm
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 import os
+from match_scraper import get_match_data
+from player_scraper import get_player_data
 
 # Suppress specific deprecation warnings
 warnings.filterwarnings('ignore', category=UserWarning,
@@ -29,7 +31,7 @@ def create_word_document():
     # add a page
     doc.add_page_break()
 
-    doc.add_paragraph('The History of NRL')
+    doc.add_paragraph('The History of NRL', style='Heading 1')
 
     # add content to the second page
     history_text = (
@@ -50,67 +52,14 @@ def create_word_document():
     # add a page
     doc.add_page_break()
 
-    doc.add_paragraph('Here is some NRL data:')
+    doc.add_paragraph('NRL MATCH DATA:', style='Heading 1')
 
-    import requests
+    get_match_data(doc)
 
-    url = 'https://geo145327-staging.s3.ap-southeast-2.amazonaws.com/public/nrl_data.json'
+    # add a page
+    doc.add_page_break()
 
-    response = requests.get(url)
-
-    if response.status_code == 200:
-        # Load data
-        data = response.json()
-
-        # for week_data in data['NRL']:
-        #     for week, games in week_data.items():
-        #         doc.add_heading(f"Week {week}", level=2)
-        #         table = doc.add_table(rows=1, cols=6)
-        #         hdr_cells = table.rows[0].cells
-        #         hdr_cells[0].text = 'Match Details'
-        #         hdr_cells[1].text = 'Date'
-        #         hdr_cells[2].text = 'Home Team'
-        #         hdr_cells[3].text = 'Home Score'
-        #         hdr_cells[4].text = 'Away Team'
-        #         hdr_cells[5].text = 'Away Score'
-
-        #         for game in games:
-        #             row_cells = table.add_row().cells
-        #             row_cells[0].text = game['Details']
-        #             row_cells[1].text = game['Date']
-        #             row_cells[2].text = game['Home']
-        #             row_cells[3].text = game['Home_Score']
-        #             row_cells[4].text = game['Away']
-        #             row_cells[5].text = game['Away_Score']
-
-    # NOTE the below statement reads the JSON file, not the web data
-    # # Load JSON data
-    # with open('game_stats.json', 'r') as file:
-    #     data = json.load(file)
-
-    # # Iterate over each item in the JSON data to create tables
-    # for year_data in data['NRL']:
-    #     for year, matches in year_data.items():
-    #         doc.add_heading(f'Year: 2023 {year}', level=2)
-    #         for match_week, games in matches[0].items():
-    #             doc.add_heading(f'Week {match_week}', level=3)
-    #             table = doc.add_table(rows=1, cols=6)
-    #             hdr_cells = table.rows[0].cells
-    #             hdr_cells[0].text = 'Match Details'
-    #             hdr_cells[1].text = 'Date'
-    #             hdr_cells[2].text = 'Home Team'
-    #             hdr_cells[3].text = 'Home Score'
-    #             hdr_cells[4].text = 'Away Team'
-    #             hdr_cells[5].text = 'Away Score'
-
-    #             for game in games:
-    #                 row_cells = table.add_row().cells
-    #                 row_cells[0].text = game['Details']
-    #                 row_cells[1].text = game['Date']
-    #                 row_cells[2].text = game['Home']
-    #                 row_cells[3].text = game['Home_Score']
-    #                 row_cells[4].text = game['Away']
-    #                 row_cells[5].text = game['Away_Score']
+    get_player_data(doc)
 
     filename = 'test.docx'
 
