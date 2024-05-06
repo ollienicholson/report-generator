@@ -68,7 +68,3 @@ def create_word_document():
 
     # Open the doc with the default application
     os.system(f"open '{filename}'")
-
-
-# Run the function to create the document
-create_word_document()
