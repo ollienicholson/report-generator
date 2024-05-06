@@ -3,8 +3,8 @@ from docx import Document
 from docx.shared import Cm
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 import os
-from match_scraper import get_match_data
-from player_scraper import get_player_data
+from teams.match_scraper import get_match_data
+from players.player_scraper import get_player_data
 
 # Suppress specific deprecation warnings
 warnings.filterwarnings('ignore', category=UserWarning,
@@ -56,7 +56,9 @@ def create_full_report():
 
     get_player_data(doc)
 
-    filename = 'full_report_test.docx'
+    # allocate save name, save location, save doc and open doc
+    output_folder = 'outputs'
+    filename = f"{output_folder}/full_report_test.docx"
 
     # Save the document
     doc.save(filename)

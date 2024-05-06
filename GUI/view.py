@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox
 import threading
-from generate_team_report import create_team_report
-from generate_player_report import create_player_report
+from teams.generate_team_report import create_team_report
+from players.generate_player_report import create_player_report
 from generate_full_report import create_full_report
 
 
@@ -58,5 +58,5 @@ def setup_gui():
     window.mainloop()
 
 
-if __name__ == "__main__":
-    setup_gui()
+# if __name__ == "__main__":
+#     setup_gui()
