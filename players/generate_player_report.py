@@ -4,8 +4,8 @@ from docx.shared import Cm
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 import os
 
-from fetch_data.fetch_player_data import fetch_player_data
-from players.player_scraper import create_player_tables
+from fetchers import fetch_player_data
+from players.player_tables import create_player_tables
 
 
 # Suppress specific deprecation warnings

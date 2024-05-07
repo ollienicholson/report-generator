@@ -4,7 +4,7 @@ from docx.shared import Cm
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 import os
 from teams.match_scraper import get_match_data
-from players.player_scraper import create_player_tables
+from players.player_tables import create_player_tables
 
 # Suppress specific deprecation warnings
 warnings.filterwarnings('ignore', category=UserWarning,
