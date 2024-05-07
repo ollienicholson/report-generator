@@ -3,7 +3,10 @@ from docx import Document
 from docx.shared import Cm
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 import os
-from players.player_scraper import get_player_data
+
+from fetch_data.fetch_player_data import fetch_player_data
+from players.player_scraper import create_player_tables
+
 
 # Suppress specific deprecation warnings
 warnings.filterwarnings('ignore', category=UserWarning,
@@ -11,6 +14,7 @@ warnings.filterwarnings('ignore', category=UserWarning,
 
 
 def create_player_report():
+    '''creates the player report'''
     # Create a new Document
     doc = Document()
 
@@ -47,7 +51,13 @@ def create_player_report():
 
     doc.add_paragraph('NRL PLAYER DATA:', style='Heading 1')
 
-    get_player_data(doc)
+    # fetch player data
+    df_player = fetch_player_data()
+
+    # pass player data and doc into player tables function
+    if df_player is not None:
+        # insert player tables
+        create_player_tables(df_player, doc)
 
     # allocate save name, save location, save doc and open doc
     output_folder = 'outputs'
