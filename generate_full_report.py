@@ -3,7 +3,7 @@ from docx import Document
 from docx.shared import Cm
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 import os
-from teams.match_scraper import get_match_data
+from fetchers import get_match_data, fetch_player_data
 from players.player_tables import create_player_tables
 
 # Suppress specific deprecation warnings
@@ -53,8 +53,9 @@ def create_full_report():
     doc.add_page_break()
 
     doc.add_paragraph('NRL PLAYER DATA:', style='Heading 1')
-
-    create_player_tables(doc)
+    df_player = fetch_player_data()
+    if df_player is not None:
+        create_player_tables(df_player, doc)
 
     # allocate save name, save location, save doc and open doc
     output_folder = 'outputs'

@@ -3,7 +3,7 @@ from docx import Document
 from docx.shared import Cm
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 import os
-from teams.match_scraper import get_match_data
+from fetchers import get_match_data
 
 # Suppress specific deprecation warnings
 warnings.filterwarnings('ignore', category=UserWarning,

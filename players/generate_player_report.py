@@ -54,7 +54,6 @@ def create_player_report():
     # fetch player data
     df_player = fetch_player_data()
 
-    # pass player data and doc into player tables function
     if df_player is not None:
         # insert player tables
         create_player_tables(df_player, doc)
