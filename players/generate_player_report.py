@@ -5,7 +5,8 @@ from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 import os
 
 from fetchers import fetch_player_data
-from players.player_tables import create_player_tables
+from players.player_tables import create_player_tables, add_chart_to_doc
+from test_charts import save_player_stats_chart
 
 
 # Suppress specific deprecation warnings
@@ -57,6 +58,13 @@ def create_player_report():
     if df_player is not None:
         # insert player tables
         create_player_tables(df_player, doc)
+
+    # Save player stats chart
+        chart_filename = 'player_stats.png'
+        save_player_stats_chart(df_player, chart_filename)
+
+        # Add the player stats chart to the document
+        add_chart_to_doc(doc, chart_filename)
 
     # allocate save name, save location, save doc and open doc
     output_folder = 'outputs'
