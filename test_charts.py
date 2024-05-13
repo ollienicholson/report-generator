@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 # testing
 
 
-def save_player_stats_chart(df, filename='player_stats.png'):
+def player_stats_chart(df, filename='player_stats.png'):
     """
     Generates a bar chart for player stats and saves it as an image.
     """

@@ -6,7 +6,7 @@ import os
 
 from fetchers import fetch_player_data
 from players.player_tables import create_player_tables, add_chart_to_doc
-from test_charts import save_player_stats_chart
+from test_charts import player_stats_chart
 
 
 # Suppress specific deprecation warnings
@@ -61,7 +61,7 @@ def create_player_report():
 
     # Save player stats chart
         chart_filename = 'player_stats.png'
-        save_player_stats_chart(df_player, chart_filename)
+        player_stats_chart(df_player, chart_filename)
 
         # Add the player stats chart to the document
         add_chart_to_doc(doc, chart_filename)
