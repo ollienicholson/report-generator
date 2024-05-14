@@ -25,3 +25,15 @@ def add_table(doc, column_titles=None, data_dict=None):
         row_cells[0].text = key
         row_cells[1].text = str(value)
     return doc
+
+
+def on_enter(event):
+    # Change background color on hover
+    print("Mouse entered player button")  # Debug print
+    event.widget.config(background='red')
+
+
+def on_leave(event):
+    # Change back to default on mouse leave
+    print("Mouse left plyer button\n")  # Debug print
+    event.widget.config(background='blue')

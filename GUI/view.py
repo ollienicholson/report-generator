@@ -1,9 +1,11 @@
 import tkinter as tk
-from tkinter import messagebox
 import threading
+
+from tkinter import messagebox
 from teams.generate_team_report import create_team_report
 from players.generate_player_report import create_player_report
 from generate_full_report import create_full_report
+from helpers import on_enter, on_leave
 
 
 def render_team_report():
@@ -38,24 +40,26 @@ def setup_gui():
     # Create main window
     window = tk.Tk()
     window.title("NRL Reports Generator")
-    window.geometry("350x200")  # Width x Height
+    window.geometry("350x200")  # W x H
 
-    # button for generating the full report
-    btn_generate_team_report = tk.Button(window, text="Generate Team Report",
-                                         command=lambda: threading.Thread(target=render_team_report).start())
-    btn_generate_team_report.pack(pady=10)  # Add vertical padding
+    # button for generating the TEAM report
+    btn_team_report = tk.Button(window, text="Generate Team Report",
+                                command=lambda: threading.Thread(target=render_team_report).start())
+    btn_team_report.pack(pady=10)  # Add vertical padding
 
-    # button to generate player report
-    btn_generate_player_report = tk.Button(
+    # button to generate PLAYER report
+    btn_player_report = tk.Button(
         window, text="Generate Player Report",
         command=lambda: threading.Thread(target=render_player_report).start())
-    btn_generate_player_report.pack(pady=10)  # Add vertical padding
+    btn_player_report.pack(pady=10)  # Add vertical padding
+    btn_player_report.bind("<Enter>", on_enter)
+    btn_player_report.bind("<Leave>", on_leave)
 
-    # button to generate player report
-    btn_generate_full_report = tk.Button(
+    # button to generate FULL report
+    btn_full_report = tk.Button(
         window, text="Generate Full Report",
         command=lambda: threading.Thread(target=render_full_report).start())
-    btn_generate_full_report.pack(pady=10)  # Add vertical padding
+    btn_full_report.pack(pady=10)  # Add vertical padding
 
     # button to exit the application
     btn_exit = tk.Button(window, text="Close Tool", command=window.quit)
