@@ -3,7 +3,9 @@ from docx import Document
 from docx.shared import Cm
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 import os
-from fetchers import get_match_data
+from fetchers import fetch_match_data
+
+from teams.match_tables import create_match_tables
 
 # Suppress specific deprecation warnings
 warnings.filterwarnings('ignore', category=UserWarning,
@@ -46,7 +48,13 @@ def create_team_report():
 
     doc.add_paragraph('NRL MATCH DATA:', style='Heading 1')
 
-    get_match_data(doc)
+    df_match = fetch_match_data()
+    print('1')
+
+    if df_match is not None:
+        create_match_tables(df_match, doc)
+
+    # add point difference formula then put in helpers
 
     # allocate save name, save location, save doc and open doc
     output_folder = 'outputs'

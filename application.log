@@ -5088,3 +5088,17 @@
 2024-05-14 12:21:58 - DEBUG - Starting new HTTPS connection (1): geo145327-staging.s3.ap-southeast-2.amazonaws.com:443
 2024-05-14 12:21:59 - DEBUG - https://geo145327-staging.s3.ap-southeast-2.amazonaws.com:443 "GET /public/player_statistics_2024.json HTTP/1.1" 200 2051998
 2024-05-14 12:22:01 - INFO - GUI Started...
+2024-05-14 12:33:05 - DEBUG - Starting new HTTPS connection (1): geo145327-staging.s3.ap-southeast-2.amazonaws.com:443
+2024-05-14 12:33:06 - DEBUG - https://geo145327-staging.s3.ap-southeast-2.amazonaws.com:443 "GET /public/nrl_data.json HTTP/1.1" 200 58828
+2024-05-14 12:33:28 - INFO - GUI Started...
+2024-05-14 12:41:45 - DEBUG - Starting new HTTPS connection (1): geo145327-staging.s3.ap-southeast-2.amazonaws.com:443
+2024-05-14 12:41:45 - DEBUG - https://geo145327-staging.s3.ap-southeast-2.amazonaws.com:443 "GET /public/nrl_data.json HTTP/1.1" 200 58828
+2024-05-14 12:42:08 - INFO - GUI Started...
+2024-05-14 12:42:12 - DEBUG - Starting new HTTPS connection (1): geo145327-staging.s3.ap-southeast-2.amazonaws.com:443
+2024-05-14 12:42:12 - DEBUG - https://geo145327-staging.s3.ap-southeast-2.amazonaws.com:443 "GET /public/nrl_data.json HTTP/1.1" 200 58828
+2024-05-14 12:42:35 - INFO - GUI Started...
+2024-05-14 13:15:04 - DEBUG - Starting new HTTPS connection (1): geo145327-staging.s3.ap-southeast-2.amazonaws.com:443
+2024-05-14 13:15:05 - DEBUG - https://geo145327-staging.s3.ap-southeast-2.amazonaws.com:443 "GET /public/nrl_data.json HTTP/1.1" 200 58828
+2024-05-14 13:15:48 - INFO - GUI Started...
+2024-05-14 13:22:57 - DEBUG - Starting new HTTPS connection (1): geo145327-staging.s3.ap-southeast-2.amazonaws.com:443
+2024-05-14 13:22:57 - DEBUG - https://geo145327-staging.s3.ap-southeast-2.amazonaws.com:443 "GET /public/nrl_data.json HTTP/1.1" 200 58828

@@ -3,7 +3,7 @@ from docx import Document
 from docx.shared import Cm
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 import os
-from fetchers import get_match_data, fetch_player_data
+from fetchers import fetch_match_data, fetch_player_data
 from players.player_tables import create_player_tables
 
 # Suppress specific deprecation warnings
@@ -47,7 +47,7 @@ def create_full_report():
 
     doc.add_paragraph('NRL MATCH DATA:', style='Heading 1')
 
-    get_match_data(doc)
+    fetch_match_data()
 
     # add a page
     doc.add_page_break()

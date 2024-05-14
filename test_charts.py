@@ -7,7 +7,7 @@ def player_stats_chart(df, filename):
     """
     Generates a bar chart for player stats and saves it as an image.
 
-    Will want to pass the player name to this function in the future
+    TODO: pass the player name to this function in the future, pass dynamic stats list?
     """
     try:
         player_info = df.iloc[0]
