@@ -1,8 +1,10 @@
 import warnings
+import logging
+import os
+
 from docx import Document
 from docx.shared import Cm
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
-import os
 
 from fetchers import fetch_player_data
 from players.player_tables import create_player_tables, add_chart_to_doc
@@ -15,7 +17,13 @@ warnings.filterwarnings('ignore', category=UserWarning,
 
 
 def create_player_report():
-    '''creates the player report'''
+    '''creates the player report
+
+    TODO: pass dynamic images, pass dynamic player names based on GUI input
+
+    '''
+    logging.debug("Creating player report")
+
     # Create a new Document
     doc = Document()
 

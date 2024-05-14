@@ -1,5 +1,10 @@
-import logging
 from GUI.view import setup_gui
+import logging
+
+import matplotlib
+# This must be done before importing pyplot or any part of Matplotlib that might load backends.
+matplotlib.use('Agg')
+
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG,
