@@ -1,9 +1,15 @@
-# import requests
 
 
-def create_match_tables(data, doc):
-    for week_data in data['NRL']:
-        for week, games in week_data.items():
+def create_match_tables(data: dict, doc):
+    '''
+    will need to pass the rounds into this report\
+        '''
+    print('running create_match_tables...\n\n')
+    round_1 = data['NRL'][0]  # this works if you only want round 1
+
+    try:
+        # for rounds in data['NRL']: # this works for all rounds
+        for week, games in round_1.items():
             doc.add_heading(f"Week {week}", level=2)
             table = doc.add_table(rows=1, cols=6)
             hdr_cells = table.rows[0].cells
@@ -22,3 +28,6 @@ def create_match_tables(data, doc):
                 row_cells[3].text = game['Home_Score']
                 row_cells[4].text = game['Away']
                 row_cells[5].text = game['Away_Score']
+
+    except Exception as e:
+        print(f"could not create match tables: {e}")

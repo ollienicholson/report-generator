@@ -48,13 +48,11 @@ def create_team_report():
 
     doc.add_paragraph('NRL MATCH DATA:', style='Heading 1')
 
-    df_match = fetch_match_data()
-    print('1')
+    match_data = fetch_match_data()
 
-    if df_match is not None:
-        create_match_tables(df_match, doc)
-
-    # add point difference formula then put in helpers
+    if match_data is not None:
+        create_match_tables(match_data, doc)
+    # add point difference/delta formula then put in helpers
 
     # allocate save name, save location, save doc and open doc
     output_folder = 'outputs'
