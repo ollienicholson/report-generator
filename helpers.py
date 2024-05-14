@@ -1,3 +1,5 @@
+
+
 # Averages Calculation and Display
 def calculate_average(numerator, denominator):
     try:
@@ -15,7 +17,6 @@ def add_table(doc, column_titles=None, data_dict=None):
     """
     table = doc.add_table(rows=1 if column_titles else 0, cols=2)
     if column_titles:
-        # table = doc.add_table(rows=1, cols=2)
         hdr_cells = table.rows[0].cells
         hdr_cells[0].text = column_titles[0]
         hdr_cells[1].text = column_titles[1]

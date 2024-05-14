@@ -52,8 +52,6 @@ def setup_gui():
         window, text="Generate Player Report",
         command=lambda: threading.Thread(target=render_player_report).start())
     btn_player_report.pack(pady=10)  # Add vertical padding
-    btn_player_report.bind("<Enter>", on_enter)
-    btn_player_report.bind("<Leave>", on_leave)
 
     # button to generate FULL report
     btn_full_report = tk.Button(
