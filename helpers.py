@@ -1,6 +1,9 @@
-
+from docx.shared import Cm
+from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 
 # Averages Calculation and Display
+
+
 def calculate_average(numerator, denominator):
     try:
         value = float(numerator) / float(denominator)
@@ -26,6 +29,18 @@ def add_table(doc, column_titles=None, data_dict=None):
         row_cells[0].text = key
         row_cells[1].text = str(value)
     return doc
+
+
+def add_chart_to_doc(doc, filename):
+    """
+    Inserts a bar chart image into the Word document.
+    """
+    doc.add_paragraph()  # Add an empty paragraph for spacing
+    doc.add_paragraph('Player Performance Stats:', style='Heading 2')
+    para_image = doc.add_paragraph()
+    run_image = para_image.add_run()
+    run_image.add_picture(filename, width=Cm(12))
+    para_image.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER  # Center-align the paragraph
 
 
 def on_enter(event):

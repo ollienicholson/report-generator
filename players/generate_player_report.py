@@ -7,7 +7,8 @@ from docx.shared import Cm
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 
 from fetchers import fetch_player_data
-from players.player_tables import create_player_tables, add_chart_to_doc
+from helpers import add_chart_to_doc
+from players.player_tables import create_player_tables
 from test_charts import player_stats_chart
 
 

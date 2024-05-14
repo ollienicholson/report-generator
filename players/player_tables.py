@@ -1,7 +1,6 @@
 from docx import Document
 import pandas as pd
-from docx.shared import Cm
-from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
+
 
 from helpers import calculate_average, add_table
 
@@ -53,15 +52,3 @@ def create_player_tables(df: pd.DataFrame, doc: Document):
         doc.add_paragraph("Not enough data for average points per metre ran.")
 
     return doc
-
-
-def add_chart_to_doc(doc, filename):
-    """
-    Inserts a bar chart image into the Word document.
-    """
-    doc.add_paragraph()  # Add an empty paragraph for spacing
-    doc.add_paragraph('Player Performance Stats:', style='Heading 2')
-    para_image = doc.add_paragraph()
-    run_image = para_image.add_run()
-    run_image.add_picture(filename, width=Cm(12))
-    para_image.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER  # Center-align the paragraph
