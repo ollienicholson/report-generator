@@ -4,7 +4,12 @@ todo.txt
 # outputs
 *.docx
 *.png
+*.jpg
 
 # dumps
 *.json
 json/*.json
+
+*.DS_Store
+
+*.pyc
