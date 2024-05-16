@@ -10,7 +10,7 @@ matplotlib.use('Agg')
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(levelname)s - %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S',
-                    filename='application.log',
+                    filename='logs/application.log',
                     filemode='a')
 
 

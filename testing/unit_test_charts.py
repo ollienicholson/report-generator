@@ -3,7 +3,7 @@ import pandas as pd
 import os
 from PIL import Image
 
-from test_charts import save_player_stats_chart
+from testing.test_charts import save_player_stats_chart
 
 #  NOTE save_player_stats_chart passed at 11:20am Wed 8th May
 

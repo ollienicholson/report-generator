@@ -2,7 +2,7 @@ from docx import Document
 import pandas as pd
 
 
-from helpers import calculate_average, add_table
+from helpers.helpers import calculate_average, add_table
 
 
 def create_player_tables(df: pd.DataFrame, doc: Document):

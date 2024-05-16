@@ -2,10 +2,10 @@ import tkinter as tk
 import threading
 
 from tkinter import messagebox
-from teams.generate_team_report import create_team_report
-from players.generate_player_report import create_player_report
-from generate_full_report import create_full_report
-from helpers import on_enter, on_leave
+from report_generators.generate_team_report import create_team_report
+from report_generators.generate_player_report import create_player_report
+from report_generators.generate_full_report import create_full_report
+from helpers.helpers import on_enter, on_leave
 
 
 def render_team_report():

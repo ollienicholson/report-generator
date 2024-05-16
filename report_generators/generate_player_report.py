@@ -6,10 +6,10 @@ from docx import Document
 from docx.shared import Cm
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 
-from fetchers import fetch_player_data
-from helpers import add_chart_to_doc
+from data.fetchers import fetch_player_data
+from helpers.helpers import add_chart_to_doc
 from players.player_tables import create_player_tables
-from test_charts import player_stats_chart
+from testing.test_charts import player_stats_chart
 
 
 # Suppress specific deprecation warnings
@@ -36,7 +36,7 @@ def create_player_report():
     # Add a centered image
     para_image = doc.add_paragraph()
     run_image = para_image.add_run()
-    run_image.add_picture('stock_image.jpg', width=Cm(12))
+    run_image.add_picture('images/stock_image.jpg', width=Cm(12))
     para_image.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER  # Center-align the paragraph
 
     # add a page
@@ -69,14 +69,14 @@ def create_player_report():
         create_player_tables(df_player, doc)
 
     # Save player stats chart
-        chart_filename = 'player_stats.png'
+        chart_filename = 'charts/player_stats.png'
         player_stats_chart(df_player, chart_filename)
 
         # Add the player stats chart to the document
         add_chart_to_doc(doc, chart_filename)
 
     # allocate save name, save location, save doc and open doc
-    output_folder = 'outputs'
+    output_folder = 'report_outputs'
     filename = f"{output_folder}/player_report_test.docx"
 
     # Save the document
