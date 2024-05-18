@@ -13,3 +13,5 @@ json/*.json
 *.DS_Store
 
 *.pyc
+
+logs/*.log

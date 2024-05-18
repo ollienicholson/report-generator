@@ -5,7 +5,6 @@ from tkinter import messagebox
 from report_generators.generate_team_report import create_team_report
 from report_generators.generate_player_report import create_player_report
 from report_generators.generate_full_report import create_full_report
-from helpers.helpers import on_enter, on_leave
 
 
 def render_team_report():

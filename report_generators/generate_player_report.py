@@ -7,10 +7,10 @@ from docx.shared import Cm
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 
 from data.fetchers import fetch_player_data
-from helpers.helpers import add_chart_to_doc
 from players.player_tables import create_player_tables
 from testing.test_charts import player_stats_chart
 
+from helpers.helpers import Helpers
 
 # Suppress specific deprecation warnings
 warnings.filterwarnings('ignore', category=UserWarning,
@@ -73,7 +73,8 @@ def create_player_report():
         player_stats_chart(df_player, chart_filename)
 
         # Add the player stats chart to the document
-        add_chart_to_doc(doc, chart_filename)
+        HELP = Helpers()
+        HELP.add_player_chart(doc, chart_filename)
 
     # allocate save name, save location, save doc and open doc
     output_folder = 'report_outputs'
