@@ -14,4 +14,6 @@ json/*.json
 
 *.pyc
 
+# logs
+# will need ot retroactively remove all logs from Github
 logs/*.log
