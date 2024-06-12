@@ -1,19 +1,11 @@
 import json
 
 
+# get json  data
 def load_and_access_data(file_path):
     # open JSON file and load its contents into a dict
     with open(file_path, "r") as file:
         data = json.load(file)
-
-    # if 'Stats' in data:
-    #     return 'Stats'
-
-    # elif '2024' in data['Stats'][0]:
-    #     return '2024'
-
-    # else:
-    #     return "Key 'Stats' not found"
 
     game_info = data['Stats'][0]['2024']
     game_info = data['Stats']
@@ -38,3 +30,20 @@ def dump_data(file_path, data):
 
 # dump_path = 'output_dump.json'
 # dump_data(dump_path, test_data)
+
+
+# get specific key names from json
+
+def get_key_name(file_path):
+
+    with open(file_path, "r") as file:
+        data = json.load(file)
+
+    if 'Stats' in data:
+        return 'Stats'
+
+    elif '2024' in data['Stats'][0]:
+        return '2024'
+
+    else:
+        return "Key 'Stats' not found"
