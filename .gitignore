@@ -17,3 +17,6 @@ json/*.json
 # logs
 # will need ot retroactively remove all logs from Github
 logs/*.log
+
+# reqs
+requirements.txt

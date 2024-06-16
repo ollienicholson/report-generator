@@ -47,5 +47,3 @@ def get_key_name(file_path):
 
     else:
         return "Key 'Stats' not found"
-
-# testing
