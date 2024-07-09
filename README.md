@@ -21,7 +21,7 @@ The generated reports will include the following sections:
 - Specify the font type for the header and body text
 - Specify the font size for the header and body text
 - Add hero image to title page
-- Select their NRL team for team-specific data rendering
+- Select team for team-specific data rendering
 
 ## Roadmap
 
